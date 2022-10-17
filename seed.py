@@ -1,5 +1,5 @@
-from models import db, User, Beer, Brewery, Wine, Winery, Food
-from app import app
+from models import User, Beer, Brewery, Wine, Winery, Food
+from app import db
 
 db.drop_all()
 db.create_all()
