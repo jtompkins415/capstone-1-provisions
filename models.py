@@ -5,6 +5,11 @@ bcrypt = Bcrypt()
 db = SQLAlchemy()
 
 
+def connect_db(app):
+    '''Connect to DB'''
+    db.app = app
+    db.init_app(app)
+
 class User(db.Model):
     '''User Model'''
 
@@ -128,9 +133,4 @@ class Food(db.Model):
 
 
 
-
-def connect_db(app):
-    '''Connect to DB'''
-    db.app = app
-    db.init_app(app)
 
