@@ -5,7 +5,7 @@ from models import db, connect_db, User, Beer, Brewery, Wine, Winery
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///provisions_db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///provisions-db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
 app.config['SECRET_KEY'] = "provisions415"
