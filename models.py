@@ -70,7 +70,7 @@ class Brewery(db.Model):
     city = db.Column(db.String, nullable=False)
     state = db.Column(db.String, nullable=False)
     country = db.Column(db.String, nullable=False)
-    beers = db.Column(db.Interger, nullable=False)
+    beers = db.Column(db.Integer, db.ForeignKey('beers.id'))
 
     def __repr__(self):
         return f'<Brewery id:{self.id} brewery_name:{self.brewery_name} city:{self.city} country:{self.country}>'
