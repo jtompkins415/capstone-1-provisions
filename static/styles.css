@@ -18,6 +18,45 @@ h1 {
 
 }
 
+.page-title{
+    margin-left: 10px;
+}
+
+.page-title h1 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 500;
+    font-size: 28px;
+    color: #FAF8D4;
+    text-decoration: underline;
+
+}
+
+.page-title h3 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: #FAF8D4;
+    text-decoration: none;
+
+}
+
+.user-form form {
+    margin-left: 10px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 300;
+    color:#FAF8D4;
+    text-decoration : underline
+}
+
+.user-form button {
+    margin-top: 10px;
+}
+
+.user-fields {
+    margin-top: 10px;
+}
+
+
 li, a, button {
     font-family: 'Nunito', sans-serif;
     font-weight: 300;
