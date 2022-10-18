@@ -34,7 +34,7 @@ h1 {
 .page-title h3 {
     font-family: 'Nunito', sans-serif;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 14px;
     color: #FAF8D4;
     text-decoration: none;
 
@@ -45,7 +45,7 @@ h1 {
     font-family: 'Nunito', sans-serif;
     font-weight: 300;
     color:#FAF8D4;
-    text-decoration : underline
+    text-decoration : none
 }
 
 .user-form button {
