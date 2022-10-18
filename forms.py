@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, FloatField, PasswordField, TextAreaField
-from wtforms_validator import InputRequired, Length
+from wtforms.validators import InputRequired, Length
 
 class UserForm(FlaskForm):
     '''Form for user creation and submition'''
