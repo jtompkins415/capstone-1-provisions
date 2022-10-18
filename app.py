@@ -30,7 +30,7 @@ def show_home_page():
 
 ##USER ROUTE
 
-@app.route('provisions/user/new', methods=['GET', 'POST'])
+@app.route('/provisions/user/new', methods=['GET', 'POST'])
 def show_user_form():
     '''Render User creation form and handle submition'''
 
