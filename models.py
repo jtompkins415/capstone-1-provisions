@@ -9,6 +9,8 @@ def connect_db(app):
     '''Connect to DB'''
     db.app = app
     db.init_app(app)
+    with app.app_context():
+        db.create_all()
 
 class User(db.Model):
     '''User Model'''
