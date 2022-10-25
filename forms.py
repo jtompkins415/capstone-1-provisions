@@ -24,4 +24,9 @@ class BeerForm(FlaskForm):
     description = TextAreaField('Description')
 
 
+class LoginForm(FlaskForm):
+    '''Form for user login'''
+
+    username = StringField('Username', validators=[InputRequired()])
+    password = PasswordField('Password', validators=[InputRequired(),Length(min=8)])
 
