@@ -1,7 +1,7 @@
 from flask import Flask, current_app, render_template, redirect, flash, session, request, jsonify
 from flask_debugtoolbar import DebugToolbarExtension
 from models import db, connect_db, User, Beer, Brewery, Wine, Winery
-from forms import UserForm
+from forms import UserForm, LoginForm
 
 
 app = Flask(__name__)
@@ -16,6 +16,7 @@ debug = DebugToolbarExtension(app)
 
 connect_db(app)
 
+#LANDING PAGE ROUTES
 
 @app.route('/', methods=['GET'])
 def redirect_home():
@@ -29,7 +30,7 @@ def show_home_page():
 
     return render_template('home.html')
 
-##USER ROUTE
+#SEED COMMAND
 
 @app.cli.command('seed')
 def seed():
@@ -45,6 +46,9 @@ def seed():
     db.session.add_all([rachel, doug, felix, gina, morgan, lewis])
     db.session.commit()
     print('SEED COMPLETE!')
+
+
+##USER ROUTE
 
 @app.route('/provisions/user/new', methods=['GET', 'POST'])
 def show_user_form():
@@ -69,3 +73,43 @@ def show_user_form():
         return redirect('/provisions/home')
     
     return render_template('sign-up.html', form=form)
+
+
+@app.route('/provisions/user/signin', methods=['GET', 'POST'])
+def user_signin():
+    '''Render user sign in form and handle submission'''
+
+    form = LoginForm()
+
+    if form.validate_on_submit():
+        username = form.username.data
+        password = form.password.data
+
+        user = User.authenticate(username, password)
+        if user:
+            flash(f'Welcome back, {user.username}')
+            session['username'] = user.username
+            return redirect(f'/provisions/home')
+        else:
+            form.username.errors = ['Invalid username/password']
+
+    return render_template('login.html', form=form)
+
+
+@app.route('/provisions/user/logout', methods=['GET'])
+def logout_user():
+    '''Logout user and remove themn from the session'''
+
+    session.pop('username')
+    return redirect('/')
+
+@app.route('/provisions/user/<username>', methods=['GET'])
+def user_details(username):
+    '''Show details about logged in User'''
+    user = User.query.get_or_404(username)
+
+    if user.username != session['username']:
+        flash('Login Required')
+        return redirect('/provisions/user/signin')
+    else:
+        return render_template('user-details.html', user=user) 
