@@ -9,7 +9,7 @@
 </div>
 
 <div class="user-form">
-    <form action="/provisions/home" method="POST">
+    <form method="post">
         {% for field in form
             if field.widget.input_type != 'hidden' %}
             <div class="user-fields">
