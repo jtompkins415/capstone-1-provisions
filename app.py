@@ -57,7 +57,7 @@ def show_user_form():
     form = UserForm()
 
     if form.validate_on_submit():
-        new_user = User(
+        new_user = User.register(
             username = form.username.data,
             password = form.password.data,
             email = form.email.data,
@@ -70,7 +70,9 @@ def show_user_form():
         db.session.add(new_user)
         db.session.commit()
 
-        return redirect('/provisions/home')
+        flash('User Created!')
+        return redirect(f'/provisions/user/{new_user.username}')
+        
     
     return render_template('sign-up.html', form=form)
 
