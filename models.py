@@ -36,7 +36,7 @@ class User(db.Model):
         hash = bcrypt.generate_password_hash(pwd)
         hashed_utf8 = hash.decode('utf8')
 
-        return cls(username=username, password=hashed_utf8, email=email, first_name=first_name, last_name=last_name, user_city=user_city, user_state=user_state)
+        return cls(username=username, pwd=hashed_utf8, email=email, first_name=first_name, last_name=last_name, user_city=user_city, user_state=user_state)
 
     
     @classmethod
