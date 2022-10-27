@@ -55,11 +55,11 @@ def show_user_form():
     '''Render User creation form and handle submition'''
 
     form = UserForm()
-
+    
     if form.validate_on_submit():
         new_user = User.register(
             username = form.username.data,
-            password = form.password.data,
+            pwd = form.password.data,
             email = form.email.data,
             first_name = form.first_name.data,
             last_name = form.last_name.data,
