@@ -9,7 +9,8 @@
     </div>
 
     <div class="user-form">
-        <form action="/provisions/home" method="POST">
+        <form method="POST">
+            {{form.csrf_token}}
             {% for field in form
                 if field.widget.input_type != 'hidden' %}
                 <div class="user-fields">
