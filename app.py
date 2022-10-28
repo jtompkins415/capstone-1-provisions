@@ -30,8 +30,18 @@ def show_home_page():
     
     return render_template('home.html')
 
+@app.route('/provisions/about-us', methods=['GET'])
+def show_about_us():
+    '''Render About Us page'''
+
+    return render_template('about-us.html')
 
 
+@app.route('/provisions/contact-us', methods=['GET'])
+def show_contact_us():
+    '''Render Contact page'''
+
+    return render_template('contact-us.html')
 #SEED COMMAND
 
 @app.cli.command('seed')
