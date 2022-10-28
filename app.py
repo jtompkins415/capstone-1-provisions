@@ -27,8 +27,10 @@ def redirect_home():
 @app.route('/provisions/home', methods=['GET'])
 def show_home_page():
     '''Render landing page'''
-
+    
     return render_template('home.html')
+
+
 
 #SEED COMMAND
 
@@ -71,7 +73,7 @@ def show_user_form():
         db.session.commit()
 
         flash('User Created!')
-        return redirect(f'/provisions/user/{new_user.username}')
+        return redirect(f'/provisions/user/${new_user.username}')
         
     
     return render_template('sign-up.html', form=form)
@@ -82,12 +84,13 @@ def user_signin():
     '''Render user sign in form and handle submission'''
 
     form = LoginForm()
-
+    # import pdb
+    # pdb.set_trace()
     if form.validate_on_submit():
         username = form.username.data
-        password = form.password.data
+        pwd = form.password.data
 
-        user = User.authenticate(username, password)
+        user = User.authenticate(username, pwd)
         if user:
             flash(f'Welcome back, {user.username}')
             session['username'] = user.username
