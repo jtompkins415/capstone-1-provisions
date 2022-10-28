@@ -22,7 +22,7 @@ class User(db.Model):
     email = db.Column(db.String, nullable = False, unique = True )
     first_name = db.Column(db.VARCHAR(length=50), nullable = False)
     last_name = db.Column(db.VARCHAR(length=50), nullable = False)
-    password = db.Column(db.String, nullable = False)
+    pwd = db.Column(db.String, nullable = False)
     user_city = db.Column(db.String)
     user_state = db.Column(db.String)
 
@@ -45,7 +45,7 @@ class User(db.Model):
 
         user = User.query.filter_by(username=username).first()
 
-        if user and bcrypt.check_password_hash(user.password, pwd):
+        if user and bcrypt.check_password_hash(user.pwd, pwd):
             return user
         else:
             return False
