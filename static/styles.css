@@ -129,3 +129,33 @@ button:hover {
     color: #F7F4B8;
     font-family: 'Nunito', sans-serif;
 }
+
+.about-us-container{
+    width: 20em;
+    text-align: right;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: 100px;
+    font-family: 'Nunito', sans-serif;
+    float: right;
+
+}
+
+.about-us-container p{
+    color: #F7F4B8;
+}
+
+.about-us-image img {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    float: left
+   
+}
+
+ a {
+    transition: all 0.3s ease 0s;
+}
+
+ a:hover {
+   color: #FAC09E;
+}
