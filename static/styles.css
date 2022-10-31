@@ -131,7 +131,7 @@ button:hover {
 }
 
 .about-us-container{
-    width: 20em;
+    width: 25em;
     text-align: right;
     margin-top: 50px;
     margin-left: auto;
@@ -143,6 +143,7 @@ button:hover {
 
 .about-us-container p{
     color: #F7F4B8;
+    font-size: 22px;
 }
 
 .about-us-image img {
@@ -154,8 +155,30 @@ button:hover {
 
  a {
     transition: all 0.3s ease 0s;
+    font-size:22px;
 }
 
  a:hover {
    color: #FAC09E;
+   border-color: #FAC09E;
+}
+
+.user-details {
+    color: #F7F4B8;
+    font-size: 24px;
+    font-family: 'Nunito', sans-serif;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+#shop-now {
+    border: 2px solid #F7F4B8;
+    width: 10rem;
+    color: #F7F4B8;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 300;
+    text-align: center;
+    margin-left: 35rem;
+    position: relative;
+
 }
