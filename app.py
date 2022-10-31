@@ -1,4 +1,4 @@
-from flask import Flask, current_app, render_template, redirect, flash, session, request, jsonify
+from flask import Flask, current_app, render_template, redirect, flash, session, request, jsonify, g
 from flask_debugtoolbar import DebugToolbarExtension
 from models import db, connect_db, User, Beer, Brewery, Wine, Winery
 from forms import UserForm, LoginForm
@@ -83,6 +83,7 @@ def show_user_form():
         db.session.commit()
 
         flash('User Created!')
+
         return redirect(f'/provisions/user/${new_user.username}')
         
     
@@ -104,7 +105,7 @@ def user_signin():
         if user:
             flash(f'Welcome back, {user.username}')
             session['username'] = user.username
-            return redirect(f'/provisions/home')
+            return redirect(f'/provisions/user/{user.id}')
         else:
             form.username.errors = ['Invalid username/password']
 
@@ -118,13 +119,22 @@ def logout_user():
     session.pop('username')
     return redirect('/')
 
-@app.route('/provisions/user/<username>', methods=['GET'])
-def user_details(username):
+@app.route('/provisions/user/<id>', methods=['GET'])
+def user_details(id):
     '''Show details about logged in User'''
-    user = User.query.get_or_404(username)
+    user = User.query.get_or_404(id)
 
     if user.username != session['username']:
         flash('Login Required')
         return redirect('/provisions/user/signin')
     else:
         return render_template('user-details.html', user=user) 
+
+
+### SHOP ROUTES
+
+@app.route('/provisions/shop', methods=['GET'])
+def shop_home():
+    '''Render shop landing page'''
+
+    return render_template('shop-home.html')
