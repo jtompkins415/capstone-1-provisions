@@ -3,9 +3,6 @@
 {% block title %}Account Details{% endblock %}
 
 {% block content %}
-<div class="page-title">
-    <h1>{{user.first_name}} {{user.last_name}}</h1>
-</div>
 
 <div class="user-details">
     <h3>User Details</h3>
@@ -14,5 +11,7 @@
     <p>Last Name: {{user.last_name}}</p>
     <p>Email: {{user.email}}</p>
     <p>Location: {{user.user_city}}, {{user.user_state}}</p>
+
+<button><a href="/provisions/user/{{user.id}}/edit">Edit User</a></button>
 </div>
 {% endblock %}
