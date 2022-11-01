@@ -138,3 +138,9 @@ def shop_home():
     '''Render shop landing page'''
 
     return render_template('shop-home.html')
+
+@app.route('/provisions/shop/cart', methods=['GET'])
+def show_shopping_cart():
+    '''Render Shopping Cart'''
+
+    return render_template('cart.html')
