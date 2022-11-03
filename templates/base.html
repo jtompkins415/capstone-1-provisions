@@ -22,7 +22,7 @@
         </nav>  
         {% if session['username'] %}
         <div><a href="/provisions/shop/cart"><button>Shopping Cart</button></a></div>
-        <div><a href="/provisions/user/"><button>Account</button></a></div>
+        <div><a href="/provisions/user/{{session['username']}}"><button>Account</button></a></div>
         <div><a href="/provisions/user/logout"><button>Logout</button></a></div>
         {% else %}
         <div><a href="/provisions/user/signin"><button>Sign In</button></a></div>
