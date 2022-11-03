@@ -119,10 +119,10 @@ def logout_user():
     session.pop('username')
     return redirect('/')
 
-@app.route('/provisions/user/<id>', methods=['GET'])
-def user_details(id):
+@app.route('/provisions/user/<username>', methods=['GET'])
+def user_details(username):
     '''Show details about logged in User'''
-    user = User.query.get_or_404(id)
+    user = User.query.filter_by(username=username).first_or_404()
 
     if user.username != session['username']:
         flash('Login Required')
