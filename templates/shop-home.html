@@ -7,24 +7,25 @@
 <img src="../static/images/Basically-Party-Tricks-BathTub-Gin.webp" alt="" width="100%">
 <h1 class="shop-title">SHOP</h1>
 </div>
-{% for beer in beers %}
-<div class="products">
 
-</div>
+<div class="products">
+<h1 class="beer-title">BEERS</h1>
+{% for beer in beers %}
 <div class="product-description" data-name="{{beer.beer_name}}}" data-price="{{beer.price}}">
     <h3 class="product-name">{{beer.beer_name}}</h3>
         <img src="{{beer.pic_url}}" alt="beer package">
         <p class="product-brewery">{{beer.brewery}}</p>
-        <p class="product-price">{{beer.price}}</p>
-        <p class="product-abv">{{beer.abv}}</p>
-        <p class="product-description">{{beer.description}}</p>
+        <p class="product-price">Price: {{beer.price}}</p>
+        <p class="product-abv">ABV: {{beer.abv}}</p>
+        <p class="description">{{beer.description}}</p>
         <form class="add-to-cart" action="/provisions/shop/cart">
             <div>
                 <label for="qty-1">Quantity</label>
                 <input type="text" name="qty-1" id="qty-1" class="qty" value="1" />
             </div>
-            <p><input type="submit" value="Add to cart" class="btn" /></p>
+            <button>Add to Cart</button>
         </form>
 </div>
 {% endfor %}
+</div>
 {% endblock %}
