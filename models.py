@@ -58,7 +58,7 @@ class Beer(db.Model):
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     beer_name = db.Column(db.String, nullable = False)
-    brewery = db.Column(db.Integer, nullable=False)
+    brewery = db.Column(db.String, nullable=False)
     style = db.Column(db.String, nullable=False)
     abv = db.Column(db.Float, nullable=False)
     price = db.Column(db.Float, nullable=False)
