@@ -2,9 +2,11 @@ from flask import Flask, current_app, render_template, redirect, flash, session,
 from flask_debugtoolbar import DebugToolbarExtension
 from models import db, connect_db, User, Beer, Brewery, Wine, Winery
 from forms import UserForm, LoginForm
-
+# from secrets import API_SECRET_KEY
 
 app = Flask(__name__)
+
+
 
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///provisions-db'
@@ -144,3 +146,9 @@ def show_shopping_cart():
     '''Render Shopping Cart'''
 
     return render_template('cart.html')
+
+@app.route('/provisions/shop/checkout', methods=['GET', 'POST'])
+def show_checkout():
+    '''Render Checkout Page'''
+
+    return render_template('checkout.html')
