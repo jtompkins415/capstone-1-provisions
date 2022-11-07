@@ -17,20 +17,14 @@
     <p id="sub-total">
         <strong>Sub Total</strong>: <span id="stotal"></span>
     </p>
-    <ul id="shopping-cart-actions">
-        <li>
+    <div id="shopping-cart-actions">
             <input type="submit" name="update" id="update-cart" class="btn" value="Update Cart" />
-        </li>
-        <li>
             <input type="submit" name="delete" id="empty-cart" class="btn" value="Empty Cart" />
-        </li>
-        <li>
+            <br>
             <a href="/provisions/shop" class="btn">Continue Shopping</a>
-        </li>
-        <li>
-            <a href="/provisions/shop/checkout" class="btn">Go To Checkout</a>
-        </li>
-    </ul>
+            <br>
+            <a href="/provisions/shop/checkout" class="btn">Go To Checkout<a>
+    </div>
 </form>
 
 {% endblock%}
