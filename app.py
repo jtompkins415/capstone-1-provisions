@@ -138,8 +138,10 @@ def user_details(username):
 @app.route('/provisions/shop', methods=['GET'])
 def shop_home():
     '''Render shop landing page'''
+    beers = Beer.query.all()
 
-    return render_template('shop-home.html')
+
+    return render_template('shop-home.html', beers=beers)
 
 @app.route('/provisions/shop/cart', methods=['GET'])
 def show_shopping_cart():
