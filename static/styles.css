@@ -349,3 +349,9 @@ button:hover {
     color: #dc824e;
     text-decoration:underline;
 }
+
+.contact-info {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
