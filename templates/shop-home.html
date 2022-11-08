@@ -13,7 +13,7 @@
 {% for beer in beers %}
 <div class="product-description" data-name="{{beer.beer_name}}}" data-price="{{beer.price}}">
     <h3 class="product-name">{{beer.beer_name}}</h3>
-        <img src="{{beer.pic_url}}" alt="beer package">
+        <img src="../static/images/generaic-btl.jpeg" alt="beer package" width="50%">
         <p class="product-brewery">{{beer.brewery}}</p>
         <p class="product-price">Price: {{beer.price}}</p>
         <p class="product-abv">ABV: {{beer.abv}}</p>
