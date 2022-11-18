@@ -1,7 +1,7 @@
 from flask import Flask, current_app, render_template, redirect, flash, session, request, jsonify, g
 from flask_debugtoolbar import DebugToolbarExtension
 from models import db, connect_db, User, Beer, Brewery, Wine, Winery
-from forms import UserForm, LoginForm
+from forms import UserForm, LoginForm, UserEditForm
 # from secrets import API_SECRET_KEY
 
 app = Flask(__name__)
@@ -107,7 +107,7 @@ def user_signin():
         if user:
             flash(f'Welcome back, {user.username}')
             session['username'] = user.username
-            return redirect(f'/provisions/user/{user.id}')
+            return redirect(f'/provisions/user/{user.username}')
         else:
             form.username.errors = ['Invalid username/password']
 
@@ -132,6 +132,40 @@ def user_details(username):
     else:
         return render_template('user-details.html', user=user) 
 
+@app.route('/provisions/user/<username>/edit', methods=[GET, POST])
+def user_edit(username):
+    '''Handle user edit form and form submission'''
+
+    '''Find user'''
+    user = User.query.get_or_404(username)
+
+    if user.username != session['username']:
+        flash('Login Required')
+        return redirect('/provisions/user/signin')
+    
+    '''Instantiate form and fill w/ existing user data'''
+    form = UserEditForm()
+    form.username.data = user.username
+    form.email.data = user.email
+    form.first_name.data = user.first_name
+    form.last_name.data = user.last_name
+    form.user_city.data = user.user_city
+    form.user_state.data = user.user_state
+ 
+    if form.validate_on_submit():
+        user.username = form.username.data
+        user.email = form.email.data
+        user.first_name = form.first_name.data
+        user.last_name = form.last_name.data
+        user.user_city = form.user_city.data
+        user.user_state = form.user_state.data
+        
+        db.session.add(user)
+        db.session.commit()
+    else:
+        return render_template('user-edit.html', user=user)
+
+    return redirect('/provisions/user/<username>')
 
 ### SHOP ROUTES
 
