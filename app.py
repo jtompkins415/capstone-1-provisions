@@ -132,12 +132,12 @@ def user_details(username):
     else:
         return render_template('user-details.html', user=user) 
 
-@app.route('/provisions/user/<username>/edit', methods=[GET, POST])
+@app.route('/provisions/user/<username>/edit', methods=["GET", "POST"])
 def user_edit(username):
     '''Handle user edit form and form submission'''
 
     '''Find user'''
-    user = User.query.get_or_404(username)
+    user = User.query.filter_by(username=username).first_or_404()
 
     if user.username != session['username']:
         flash('Login Required')
@@ -153,6 +153,7 @@ def user_edit(username):
     form.user_state.data = user.user_state
  
     if form.validate_on_submit():
+        '''Figure out how to get new data to submit!!!'''
         user.username = form.username.data
         user.email = form.email.data
         user.first_name = form.first_name.data
@@ -161,11 +162,13 @@ def user_edit(username):
         user.user_state = form.user_state.data
         
         db.session.add(user)
-        db.session.commit()
+        db.session.commit() 
+        return redirect(f'/provisions/user/{user.username}')
+    
     else:
-        return render_template('user-edit.html', user=user)
+        return render_template('user-edit.html', user=user, form=form)
 
-    return redirect('/provisions/user/<username>')
+    
 
 ### SHOP ROUTES
 
