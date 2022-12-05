@@ -193,124 +193,23 @@ button:hover {
     color: #dc824e;
 }
 
-/* shopping cart styles */
 
 #shopping-cart {
-    margin-top: 5rem;
-    margin-left: 10rem;
+    display: inline-block;
+    position: relative;
 }
 
-.shopping-cart tr th{
+.tbl-cart {
+    display: block;
+    width: 60em;
     font-family: 'Nunito', sans-serif;
-    font-weight: 300;
-    font-size: 24px;
     color: #F7F4B8;
-    text-decoration: none;
-    column-gap: 5rem;
-
-
 }
 
-
-#update-cart{
-    margin-top: .5rem;
-    margin-bottom: .5rem;
-    padding: 9px 25px;
-    background-color: rgba(33, 1, 36, 1);
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease 0s;
-    color: #F7F4B8;
-    font-family: 'Nunito', sans-serif;
-    font-size: 16px;
-    font-weight: 300;
+.btnDelete {
+    padding: 16px
 }
 
-#update-cart:hover{
-    color:#F79256;
-    background-color: rgba(33, 1, 36, 0.8);
-}
-
-#empty-cart{
-    margin-top: .5rem;
-    margin-bottom: .5rem;
-    padding: 9px 25px;
-    background-color: rgba(33, 1, 36, 1);
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease 0s;
-    color: #F7F4B8;
-    font-family: 'Nunito', sans-serif;
-    font-size: 16px;
-    font-weight: 300;
-}
-
-#empty-cart:hover{
-    color:#F79256;
-    background-color: rgba(33, 1, 36, 0.8);
-}
-
-#sub-total {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 300;
-    font-size: 18px;
-    color: #F7F4B8;
-    text-decoration: none;
-}
-
-#shipping {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 300;
-    font-size: 18px;
-    color: #F7F4B8;
-    text-decoration: none;
-    margin-top: .5rem;
-    margin-bottom: .5rem;
-}
-
-#checkout-order-form {
-    margin: 1rem;
-}
-
-#checkout-order-form h2 {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 300;
-    font-size: 24px;
-    color: #F7F4B8;
-    text-decoration: none;
-}
-#checkout-order-form legend {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 300;
-    font-size: 18px;
-    color: #F7F4B8;
-    text-decoration: none;
-}
-#checkout-order-form label {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 300;
-    font-size: 18px;
-    color: #F7F4B8;
-    text-decoration: none;
-}
-
-#check-order-form div input{
-    border-radius: 10px;
-}
-
-#shipping-same {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 300;
-    font-size: 18px;
-    color: #F7F4B8;
-    text-decoration: none;
-}
-
-#submit-order {
-    margin-top: .5rem;
-}
 
 /* SHOP STYLES */
 
