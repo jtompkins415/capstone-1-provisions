@@ -132,6 +132,13 @@ class Food(db.Model):
         return f'<Food id:{self.id} name:{self.name} producer:{self.producer} category:{self.category}>'        
 
 
+# class ShoppingCart(db.Model):
+#     '''Shopping Cart Model'''
+
+#     ___tablename__ = 'shopping_carts'
+
+#     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+#     user_id = db.Column(db.Interger, db.ForeignKey("users.id"))
 
 
 
