@@ -3,28 +3,34 @@
 {% block title %}Shopping Cart{% endblock %}
 
 {% block content %}
-<form id="shopping-cart" action="/provisions/shop/cart" method="post">
-    <table class="shopping-cart">
-        <thead>
-            <tr>
-                <th scope="col">Item</th>
-                <th scope="col">Qty</th>
-                <th scope="col">Price</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
-    <p id="sub-total">
-        <strong>Sub Total</strong>: <span id="stotal"></span>
-    </p>
-    <div id="shopping-cart-actions">
-            <input type="submit" name="update" id="update-cart" class="btn" value="Update Cart" />
-            <input type="submit" name="delete" id="empty-cart" class="btn" value="Empty Cart" />
-            <br>
-            <a href="/provisions/shop" class="btn">Continue Shopping</a>
-            <br>
-            <a href="/provisions/shop/checkout" class="btn">Go To Checkout<a>
-    </div>
-</form>
 
+<div class="container">
+    <!--  Shopping cart table wrapper  -->
+    <div id="shopping-cart">
+        <div class="txt-heading">
+            <h1>Shopping cart</h1>
+        </div>
+        <button id="btnDelete"><a id="btnEmpty">Empty Cart</a></button>
+        <table class="tbl-cart" cellpadding="10" cellspacing="1">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th class='text-right' width="10%">Unit Price</th>
+                    <th class='text-right' width="5%">Quantity</th>
+                    <th class='text-right' width="10%">Sub Total</th>
+                </tr>
+            </thead>
+            <!--  Cart table to load data on "add to cart" action -->
+            <tbody id="cartTableBody">
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td class="text-right">Total:</td>
+                    <td id="itemCount" class="text-right" colspan="2"></td>
+                    <td id="totalAmount" class="text-right"></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+<script src="/static/js/cart2.js"></script>
 {% endblock%}
